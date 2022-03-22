@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+    <style>
+        .main_contents h2 {
+            background: no-repeat center;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+
+            .main_contents h2:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: url('news/line.png') repeat-x center;
+                position: absolute;
+                bottom: -1px;
+            }
+
+
+        @media only screen and (min-width: 769px) {
+            .main_contents h2 {
+                background-image: url('news/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: auto;
+                    height: 80px;
+                }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .main_contents h2 {
+                background-image: url('news/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: 100%;
+                }
+        }
+
+        .main_contents {
+            width: 100%;
+        }
+
+            .main_contents h2 {
+                margin-bottom: 50px;
+            }
+
+        .context_gameplay {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+            .context_gameplay > div {
+                width: 70%;
+                margin: 0 auto;
+            }
+
+                .context_gameplay > div > img {
+                    width: 100%;
+                }
+
+            .context_gameplay div p {
+                text-align: justify;
+            }
+
+            .context_gameplay > div > p {
+                text-align: center;
+            }
+
+            .context_gameplay p {
+                text-align: justify;
+                font-size: 25px;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="header_nav" id="header_nav">
+                <div class="wrap_nav">
+                    <div class="header_logo">
+                        <h1><a href="index.html"></a></h1>
+                        <div class="nav_menu open"></div>
+                    </div>
+                    <div class="main_menu">
+                        <div class="wraper"></div>
+                        <ul class="global">
+                            <li class="news"><a href="news.html"></a></li>
+                            <li class="world"><a href="world.html"></a></li>
+                            <li class="servant"><a href="servant.html"></a></li>
+                            <li class="howto"><a href="howtoplay.html"></a></li>
+                            <li class="gallery"><a href="gallery.html"></a></li>
+                            <li class="contact"><a href="contact.html"></a></li>
+                            <li class="music"><a href=""></a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/FateGO.USA" target="_blank"></a></li>
+                            <li class="twitter"><a href="https://twitter.com/FateGO_USA" target="_blank"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <article>
+            <div id="wrapper">
+                <div class="main_contents">
+                    <h2>
+                        <img src="Images/gameplay/title_howtoplay.png" />
+                    </h2>
+
+                </div>
+                <div class="context_gameplay">
+                    <p>Game thẻ bài không còn quá xa lạ với những gamer, vì vậy điều làm nổi bật chất riêng của những con game chính là gameplay. Nếu Yugioh! đặc biệt về hệ thống triệu hồi bài trên sân, Heartstone nổi về cơ chế đơn giản và phổ biến, thì F/GO có những tính năng “dị mà hay” khiến player cần cẩn thận trong việc chọn card. Dưới đây là acc của mình bên server US.</p>
+                    <div>
+                        <img src="Images/gameplay/gameplay-1.jpg" />
+                        <p><em>Một battle cơ bản, ở đây mình đang đánh event Revival: Halloween Strike.</em></p>
+                    </div>
+                    <p>Như có thể thấy, cách xếp thẻ là random, skill của mỗi người là riêng biệt nên thật khó có thể nói hết nên mình sẽ tóm tắt ở dưới như sau:</p>
+                    <ul>
+                        <li>
+                            <p>Mỗi servant trên hình sẽ có <b>bộ skill riêng</b> với 3 skill khác nhau, dễ dàng nhận biết thông qua hình.</p>
+                        </li>
+                    </ul>
+                    <div>
+                        <img src="Images/gameplay/gameplay-2.jpg" />
+                        <p><em>Bộ skill của Okita Souji – Kiếm sĩ thiên tài, một trong những kiếm sĩ mạnh nhất Shinshengumi (game nhiều trường hợp chuyển giới lắm nên đừng thắc mắc giới tính nhé!)</em></p>
+                    </div>
+                    <ul>
+                        <li>
+                            <p><b>Thẻ</b> của mỗi servant cũng riêng biệt với đặc điểm chung có 3 thẻ: <b>Buster (đỏ)</b> cho phép đòn tấn công tăng dame, <b>Art (xanh biển)</b> để tăng thanh NP aka nộ (ở dưới thanh HP servant) cho phép mỗi servant khi đủ cây sẽ cho 1 card NP AKA <b>Bảo khí</b> gây nhiều hiệu ứng đặc biệt, <b>Quick (lá cây)</b> tạo lượng sao để turn sau các servant của bạn có lượng dame tay crit to hơn và tăng khả năng từng card tốt hơn.</p>
+                        </li>
+                    </ul>
+                    <div>
+                        <img src="Images/gameplay/gameplay-3.jpg" />
+                        <p><em>Bộ thẻ của Altria Pendragon và Bảo khí của cô (đã đóng khung) tên Rhongomyniad.</em></p>
+                    </div>
+                    <ul>
+                        <li>
+                            <p><b>Lễ khí khái niệm (Craft Essence – CE)</b> nôm na như card support lắp hỗ trợ cho mỗi servant như một skill bị động trong battle.</p>
+                        </li>
+                    </ul>
+                    <div>
+                        <img src="Images/gameplay/gameplay-4.jpg" />
+                        <p><em>CE Travel Portrait: Tamamo-no-Mae trong event 3rd Anniversary.</em></p>
+                    </div>
+                    <ul>
+                        <li>
+                            <p><b>Mystic Codes</b> AKA trang phục của player cũng góp 1 phần quan trọng khi chính những bộ đồ có những active skill của chính player hỗ trợ servant mình. Đồng thời FGO vẫn giữ nguyên truyền thống của mình: 3 lệnh chú, cho phép sạc NP 100%, hồi 100% HP 1 servant hoặc giữ 3 lệnh để hồi sinh toàn team mình sau khi bị đánh bại.</p>
+                        </li>
+                    </ul>
+                    <div>
+                        <img src="Images/gameplay/gameplay-5.jpg" />
+                        <p><em>Trang phục mùa hè của Master.</em></p>
+                    </div>
+                    <p>Đồng thời đi kèm với đó không thể thiếu với Fate: class AKA trường phái servant. Trên phim hay trong truyện như thế nào thì kệ nó bởi F/GO đã tự tạo ra luật của riêng mình, còn muốn tìm hiểu thêm hãy chơi game nhé, việc tự trải nghiệm luôn là tốt nhất đó.</p>
+                    <div>
+                        <img src="Images/gameplay/gameplay-6.jpg" />
+                        <p><em>Các class đối chọi nhau trong F/GO với màu đỏ là đánh mạnh lên, màu xanh là đánh yếu với. Điều đặc biệt là class Shielder không nhận bonus dame từ bất cứ class nào.</em></p>
+                    </div>
+                    <p>Và đó là những điều cơ bản nhất mình đã nói để mọi người có thể hiểu tại sao đây là 1 con game mang các yếu tố đã nói: chiến thuật – lựa chọn card trong turn và suy nghĩ cách sử dụng các skill hợp lí trong battle, và RPG – nhập vai người trong hình và điều khiển các servant đưa đến chiến thắng.</p>
+                    <br />
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div class="footer_top">
+                <a class="footer_facebook">
+                    <img src="Images/footer/facebook.png" />
+                </a>
+                <a class="footer_twitter">
+                    <img src="Images/footer/twitter.png" />
+                </a>
+                <a class="footer_youtube">
+                    <img src="Images/footer/youtube.png" />
+                </a>
+                <a class="footer_instagram">
+                    <img src="Images/footer/instagram.png" />
+                </a>
+                <a class="footer_discord">
+                    <img src="Images/footer/discord.png" />
+                </a>
+                <a class="footer_reddit">
+                    <img src="Images/footer/reddit.png" />
+                </a>
+            </div>
+            <div class="footer_main">
+                <div class="footer_main_left">
+                    <div class="footer_logo">
+                        <img src="Images/footer/footer_logo.png" />
+                    </div>
+                    <div class="footer_download">
+                        <a><img src="Images/footer/footer_btn_app.png" /></a>
+                        <a><img src="Images/footer/footer_btn_google.png" /></a>
+                    </div>
+                </div>
+                <div class="footer_main_right">
+                    <div class="footer_readline">
+                        <dl>
+                            <dt>Tựa đề trò chơi:</dt>
+                            <dd>Fate Grand Order</dd>
+                        </dl>
+                        <dl>
+                            <dt>Thể loại:</dt>
+                            <dd>FatePRG</dd>
+                        </dl>
+                        <dl>
+                            <dt>Giá:</dt>
+                            <dd>Miễn phí trên App Store và Google Play</dd>
+                        </dl>
+                        <dl>
+                            <dt>Yêu cầu hệ thống:</dt>
+                            <dd>Hệ điều hành đề xuất: Hệ điều hành tương thích với iOS 10.0 trở lên.</dd>
+                            <dd>Thiết bị được bật: iPhone 5 trở lên, iPad thế hệ thứ 3 trở lên, iPad Mini 2 trở lên, iPod thế hệ thứ 6.</dd>
+                            <dd><br />Điện thoại thông minh hoặc máy tính bảng chạy Android 4.1 trở lên và RAM tối thiểu 2GB. (Không tương thích với CPU Intel.)</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <img id="top" src="Images/footer/btn_pagetop.png" />
+            </div>
+            <div class="footer_bottom">
+                <div>
+                    <a><p>Chính Sách Bảo Mật |</p></a>
+                    <a><p>Điều Khoản Dịch Vụ |</p></a>
+                    <a href="world.html"><p>Giới Thiệu |</p></a>
+                    <a href="contact.html"><p>Liên Hệ</p></a>
+
+                </div>
+                <p>©Design by Nguyễn Mạnh Đức |</p>
+                <p>© TYPE-MOON / FGO PROJECT |</p>
+                <p>© Copyright 2017 Aniplex Inc.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="social">
+        <ul class="social__list">
+            <li class="social__item">
+                <div id="xanh"></div>
+            </li>
+            <li class="social__item">
+                <div id="den"></div>
+            </li>
+            <li class="social__item">
+                <div id="hong"></div>
+            </li>
+        </ul>
+        <button class="social__btn"><img style="width:45px;height:45px" src="Settings-icon.png" /></button>
+    </div>
+</body>
+</html>

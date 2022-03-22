@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+    <style>
+
+        .main_contents h2 {
+            background: no-repeat center;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+
+            .main_contents h2:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: url('news/line.png') repeat-x center;
+                position: absolute;
+                bottom: -1px;
+            }
+
+        .tab_news {
+            text-align: center;
+        }
+
+            .tab_news li {
+                opacity: 0.6;
+                text-align: center;
+                color: white;
+                display: inline-block;
+                margin: 5px;
+                width: 154px;
+                line-height: 36px;
+                cursor: pointer;
+            }
+
+                .tab_news li:hover {
+                    opacity: 1;
+                }
+
+            .tab_news .news2 {
+                border-top: 5px solid rgb(255 255 255 / 0.00);
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+
+
+        @media only screen and (min-width: 769px) {
+            .main_contents h2 {
+                background-image: url('news/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: auto;
+                    height: 80px;
+                }
+
+            .tab_news, .context {
+                width: 52%;
+                margin: 0 auto;
+            }
+
+            .context {
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .main_contents h2 {
+                background-image: url('news/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: 100%;
+                }
+
+            .context {
+            }
+        }
+
+        .main_contents {
+            width: 100%;
+        }
+
+            .main_contents ul {
+                padding: 0;
+            }
+
+            .main_contents h2 {
+                margin-bottom: 50px;
+            }
+
+        .news_context {
+            display: none;
+            list-style: none;
+        }
+
+        .context_date {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0 40px 0;
+            border-bottom: 2px solid #7e7c76;
+        }
+
+        .date {
+            float: left;
+            width: 20%;
+            color: #0c415b;
+            margin-left: 10px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+            .date.new::before {
+                content: url('news/new.png');
+                top: -22px;
+                left: 40px;
+                position: absolute;
+            }
+
+        .news_title {
+            float: left;
+            width: 60%;
+            position: relative;
+        }
+
+            .news_title.a::before {
+                content: "News";
+                text-align: center;
+                font-size: 16px;
+                color: white;
+                top: -32px;
+                position: absolute;
+                width: 100px;
+                line-height: 30px;
+            }
+
+            .news_title.b::before {
+                content: "Maintenance";
+                font-size: 16px;
+                text-align: center;
+                color: white;
+                top: -32px;
+                position: absolute;
+                width: 100px;
+                line-height: 30px;
+            }
+
+            .news_title.c::before {
+                content: "Updates";
+                font-size: 16px;
+                text-align: center;
+                color: white;
+                top: -32px;
+                position: absolute;
+                width: 100px;
+                line-height: 30px;
+            }
+
+            .news_title.d:before {
+                content: "Issues";
+                font-size: 16px;
+                text-align: center;
+                color: white;
+                top: -32px;
+                position: absolute;
+                width: 100px;
+                line-height: 30px;
+            }
+    </style>
+    <script>
+        $(function () {
+            $(window).resize(function () {
+                if ($(window).width() <= 768) {
+                    $(".context").css({ 'fontSize': $(window).width() * 0.025 });
+                }
+                else
+                    $(".context").css({ 'fontSize': 20 });
+
+            });
+
+            $(".news2").css({ "border-top": "5px solid red" });
+            $(".maint").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+            $(".update").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+            $(".trauble").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+            $(".news_context:nth-child(1)").css({ "display": "block" });
+            $(".news2").click(function () {
+                $(".news_context").css({ "display": "none" });
+                $(".news_context:nth-child(1)").css({ "display": "block" });
+                $(".news2").css({ "border-top": "5px solid red" });
+                $(".maint").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".update").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".trauble").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+
+            })
+            $(".maint").click(function () {
+                $(".news_context").css({ "display": "none" });
+                $(".news_context:nth-child(2)").css({ "display": "block" });
+                $(".maint").css({ "border-top": "5px solid red" });
+                $(".news2").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".update").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".trauble").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+
+            })
+            $(".update").click(function () {
+                $(".news_context").css({ "display": "none" });
+                $(".news_context:nth-child(3)").css({ "display": "block" });
+                $(".update").css({ "border-top": "5px solid red" });
+                $(".maint").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".news2").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".trauble").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+            })
+            $(".trauble").click(function () {
+                $(".news_context").css({ "display": "none" });
+                $(".news_context:nth-child(4)").css({ "display": "block" });
+                $(".trauble").css({ "border-top": "5px solid red" });
+                $(".maint").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".update").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+                $(".news2").css({ "border-top": "5px solid rgb(255 255 255 / 0.00)" });
+
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="header_nav" id="header_nav">
+                <div class="wrap_nav">
+                    <div class="header_logo">
+                        <h1><a href="index.html"></a></h1>
+                        <div class="nav_menu open"></div>
+                    </div>
+                    <div class="main_menu">
+                        <div class="wraper"></div>
+                        <ul class="global">
+                            <li class="news"><a href="news.html"></a></li>
+                            <li class="world"><a href="world.html"></a></li>
+                            <li class="servant"><a href="servant.html"></a></li>
+                            <li class="howto"><a href="howtoplay.html"></a></li>
+                            <li class="gallery"><a href="gallery.html"></a></li>
+                            <li class="contact"><a href="contact.html"></a></li>
+                            <li class="music"><a href=""></a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/FateGO.USA" target="_blank"></a></li>
+                            <li class="twitter"><a href="https://twitter.com/FateGO_USA" target="_blank"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <article>
+            <div id="wrapper">
+                <div class="main_contents">
+                    <h2>
+                        <img src="news/title_news.png" />
+                    </h2>
+                    <nav class="tab_news">
+                        <ul>
+                            <li class="news2">NEWS<a href="news.html"></a></li>
+                            <li class="maint">MAINTENANCE<a href="maintenance.html"></a></li>
+                            <li class="update">UPDATES<a href="updates.html"></a></li>
+                            <li class="trauble">ISSUES<a href="trouble.html"></a></li>
+                        </ul>
+                    </nav>
+                    <nav class="context">
+                        <ul class="news_context">
+                            <li class="context_date">
+                                <div class="date new">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title a">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title a">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title a" >Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title a">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                        </ul>
+
+                        <ul class="news_context">
+                            <li class="context_date">
+                                <div class="date new">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title b">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title b">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title b">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title b">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                        </ul>
+
+                        <ul class="news_context">
+                            <li class="context_date">
+                                <div class="date new">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title c">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title c">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title c">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title c">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                        </ul>
+                        
+                        <ul class="news_context">
+                            <li class="context_date">
+                                <div class="date new">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title d">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title d">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title d">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                            <li class="context_date">
+                                <div class="date ">
+                                    04.11.2021
+                                </div>
+                                <div class="news_title d">Scheduled Maintenance Notice (04-11 21:00 PDT)</div>
+                            </li>
+                        </ul>
+                        <ul style="list-style:none;text-align:center;margin-bottom:50px">
+                            <li>
+                                <img src="news/btn_more.png" />
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div class="footer_top">
+                <a class="footer_facebook">
+                    <img src="Images/footer/facebook.png" />
+                </a>
+                <a class="footer_twitter">
+                    <img src="Images/footer/twitter.png" />
+                </a>
+                <a class="footer_youtube">
+                    <img src="Images/footer/youtube.png" />
+                </a>
+                <a class="footer_instagram">
+                    <img src="Images/footer/instagram.png" />
+                </a>
+                <a class="footer_discord">
+                    <img src="Images/footer/discord.png" />
+                </a>
+                <a class="footer_reddit">
+                    <img src="Images/footer/reddit.png" />
+                </a>
+            </div>
+            <div class="footer_main">
+                <div class="footer_main_left">
+                    <div class="footer_logo">
+                        <img src="Images/footer/footer_logo.png" />
+                    </div>
+                    <div class="footer_download">
+                        <a><img src="Images/footer/footer_btn_app.png" /></a>
+                        <a><img src="Images/footer/footer_btn_google.png" /></a>
+                    </div>
+                </div>
+                <div class="footer_main_right">
+                    <div class="footer_readline">
+                        <dl>
+                            <dt>Tựa đề trò chơi:</dt>
+                            <dd>Fate Grand Order</dd>
+                        </dl>
+                        <dl>
+                            <dt>Thể loại:</dt>
+                            <dd>FatePRG</dd>
+                        </dl>
+                        <dl>
+                            <dt>Giá:</dt>
+                            <dd>Miễn phí trên App Store và Google Play</dd>
+                        </dl>
+                        <dl>
+                            <dt>Yêu cầu hệ thống:</dt>
+                            <dd>Hệ điều hành đề xuất: Hệ điều hành tương thích với iOS 10.0 trở lên.</dd>
+                            <dd>Thiết bị được bật: iPhone 5 trở lên, iPad thế hệ thứ 3 trở lên, iPad Mini 2 trở lên, iPod thế hệ thứ 6.</dd>
+                            <dd><br />Điện thoại thông minh hoặc máy tính bảng chạy Android 4.1 trở lên và RAM tối thiểu 2GB. (Không tương thích với CPU Intel.)</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <img id="top" src="Images/footer/btn_pagetop.png" />
+            </div>
+            <div class="footer_bottom">
+                <div>
+                    <a><p>Chính Sách Bảo Mật |</p></a>
+                    <a><p>Điều Khoản Dịch Vụ |</p></a>
+                    <a href="world.html"><p>Giới Thiệu |</p></a>
+                    <a href="contact.html"><p>Liên Hệ</p></a>
+
+                </div>
+                <p>©Design by Đỗ Chiếm Dương |</p>
+                <p>© TYPE-MOON / FGO PROJECT |</p>
+                <p>© Copyright 2017 Aniplex Inc.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="social">
+        <ul class="social__list">
+            <li class="social__item">
+                <div id="xanh"></div>
+            </li>
+            <li class="social__item">
+                <div id="den"></div>
+            </li>
+            <li class="social__item">
+                <div id="hong"></div>
+            </li>
+        </ul>
+        <button class="social__btn"><img style="width:45px;height:45px" src="Settings-icon.png" /></button>
+    </div>
+</body>
+</html>

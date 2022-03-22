@@ -1,0 +1,572 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+    <script src="http://maps.googleapis.com/maps/api/js?key=#AIzaSyClNrQbr0eYBWcbvFRWhNfb3hjE3xGz8DY&sensor=false"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+    <style>
+        .body {
+            position: relative;
+        }
+
+        .floatContents .wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .floatContents {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            opacity: 0;
+        }
+
+
+            .floatContents .player {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+
+        @media only screen and (min-width: 769px) {
+            .floatContents .player {
+                width: 960px;
+                height: 540px;
+                margin-top: -270px;
+                margin-left: -480px;
+            }
+            #googleMap {
+                width: 100%;
+                height: 100%;
+            }
+
+
+        }
+
+        @media only screen and (max-width:768px) {
+            .floatContents .player {
+                width: 100%;
+                height: 56.25%;
+                left: 0;
+                top: 22.875%;
+            }
+            #googleMap {
+                width: 100%;
+                height: 100%;
+            }
+
+
+        }
+
+
+
+        .main_contents h2 {
+            background: no-repeat center;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+
+            .main_contents h2:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: url('contact/line.png') repeat-x center;
+                position: absolute;
+                bottom: -1px;
+            }
+
+
+        @media only screen and (min-width: 769px) {
+            .main_contents h2 {
+                background-image: url('contact/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: auto;
+                    height: 80px;
+                }
+            .form_contact {
+                width: 40%;
+                margin: 0 auto;
+            }
+            .form-button {
+                width: 30%;
+                height: 50px;
+                font-size: 20px;
+            }
+            .main_contact .info_contact {
+                width: 60%;
+                margin: 0 auto;
+                display: table;
+            }
+                .main_contact .info_contact dl {
+                    display: table-cell;
+                    padding: 20px;
+                    text-align: justify;
+                }
+                .main_contact .info_contact .location {
+                    padding-left: 30px;
+                    margin-top: 10px;
+                    background: url('contact/location-icon.png') no-repeat;
+                    line-height: 24px;
+                    height: 72px;
+                }
+                .main_contact .info_contact .phone {
+                    padding-left: 30px;
+                    margin-top: 10px;
+                    background: url('contact/Mobile-Phone-icon.png') no-repeat;
+                    line-height: 24px;
+                    height: 72px;
+                }
+
+                .main_contact .info_contact .email {
+                    padding-left: 30px;
+                    margin-top: 10px;
+                    background: url('contact/Email-icon.png') no-repeat;
+                    line-height: 24px;
+                    height: 72px;
+                }
+                .main_contact .info_contact img {
+                    height: 20px;
+                    cursor: pointer;
+                }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .main_contents h2 {
+                background-image: url('news/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: 100%;
+                }
+            .form_contact {
+                width: 80%;
+                margin: 0 auto;               
+            }
+            .form-button {
+                width: 40%;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .main_contact .info_contact {
+                width: 90%;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+                .main_contact .info_contact dl {
+                    padding: 0 20px;
+                    text-align: justify;
+                }
+
+                .main_contact .info_contact .location {
+                    padding-left: 30px;
+                    margin-top: 5px;
+                    background: url('contact/location-icon.png') no-repeat;
+                    line-height: 20px;
+                    height: 60px;
+                }
+                .main_contact .info_contact .phone {
+                    padding-left: 30px;
+                    margin-top: 5px;
+                    background: url('contact/Mobile-Phone-icon.png') no-repeat;
+                    line-height: 20px;
+                    height: 69px;
+                }
+
+                .main_contact .info_contact .email {
+                    padding-left: 30px;
+                    margin-top: 5px;
+                    background: url('contact/Email-icon.png') no-repeat;
+                    line-height: 20px;
+                    height: 60px;
+                }
+                .main_contact .info_contact img {
+                    height: 16px;
+                    cursor: pointer;
+                }
+        }
+
+        .main_contents {
+            width: 100%;
+        }
+
+            .main_contents h2 {
+                margin-bottom: 50px;
+            }
+
+        
+
+            .form_contact h2, .form_contact h3 {
+                text-align: center;
+            }
+
+        .form-group {
+            width: 90%;
+            font-size: large;
+            margin: 10px auto;
+            padding: 10px 5%;
+        }
+
+            .form-group input {
+                height: 40px;
+            }
+
+        .form-control {
+            opacity: 0.6;
+            line-height: 30px;
+            width: 95%;
+            margin: 0 auto;
+            outline: none;
+            border: 1px solid gray;
+            border-radius: 3px;
+            padding-left: 15px;
+        }
+
+            .form-control:focus {
+                opacity: 1;
+            }
+
+        .form-button {
+            color: white;
+            outline: none;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+            .form-button:hover {
+                opacity: 1;
+            }
+
+        .main_contact {
+            background: rgb(128 128 128 / 0.30);
+            padding-top: 10px;
+        }
+
+            .main_contact > h2, .main_contact > h3 {
+                text-align: center;
+            }
+
+
+                .main_contact .info_contact dd {
+                    margin: 0;
+                }
+                
+     .player{
+         position:relative;
+     }
+     #dinhvi{
+         position:absolute;
+         bottom:105px;
+         right: 10px;
+         width:40px;
+         height:36px;
+         z-index:100000;
+         background:white;
+         cursor:pointer;
+         border-bottom:1px solid black;
+     }
+      
+    </style>
+    <script>
+
+        function toado(x, y, s) {
+            myCenter = new google.maps.LatLng(x, y);
+            var mapProp = {
+                center: myCenter,
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+                icon: {
+                    labelOrigin: new google.maps.Point(11, 50),
+                    url: 'contact/home-icon.png',
+                },
+                map: map,
+                label: {
+                    color: 'red',
+                    fontWeight: 'bold',
+                    text: s,
+                },
+            });
+            marker.setMap(map);
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+
+        function showPosition(position) {
+            x = position.coords.latitude;
+            y = position.coords.longitude;
+            myCenter = new google.maps.LatLng(x, y);
+            initialize();
+        }
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+            marker.setMap(map);
+        }
+
+        $(function () {
+            $("#location1").click(function () {
+                var div = '<img id="dinhvi" onclick="getLocation()" src="contact/Location-Map-icon.png" /><div id="googleMap"></div>';
+                $("#floatMovie").find(".player").html(div);
+                toado(10.8008626, 106.8080689,"Trụ sở chính");
+
+                $("#floatMovie").css({ "opacity": "1", "display": "block" });
+            })
+            $("#location2").click(function () {
+                var div = '<img id="dinhvi" onclick="getLocation()" src="contact/Location-Map-icon.png" /><div id="googleMap"></div>';
+                $("#floatMovie").find(".player").html(div);
+                toado(10.852963, 106.629576,"Chi nhánh");
+
+                $("#floatMovie").css({ "opacity": "1", "display": "block" });
+            })
+            $(".wrap").click(function () {
+                $("#floatMovie").css({ "opacity": "0", "display": "none" });
+                $("#floatMovie").find(".player").empty();
+            })
+           
+        })
+       
+
+    </script>
+</head>
+<body>
+    <div class="floatContents" id="floatMovie">
+        <div class="wrap"></div>
+        <div class="player"></div>
+    </div>
+    <div class="container">
+        <header>
+            <nav class="header_nav" id="header_nav">
+                <div class="wrap_nav">
+                    <div class="header_logo">
+                        <h1><a href="index.html"></a></h1>
+                        <div class="nav_menu open"></div>
+                    </div>
+                    <div class="main_menu">
+                        <div class="wraper"></div>
+                        <ul class="global">
+                            <li class="news"><a href="news.html"></a></li>
+                            <li class="world"><a href="world.html"></a></li>
+                            <li class="servant"><a href="servant.html"></a></li>
+                            <li class="howto"><a href="howtoplay.html"></a></li>
+                            <li class="gallery"><a href="gallery.html"></a></li>
+                            <li class="contact"><a href="contact.html"></a></li>
+                            <li class="music"><a href="music.html"></a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/FateGO.USA" target="_blank"></a></li>
+                            <li class="twitter"><a href="https://twitter.com/FateGO_USA" target="_blank"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <article>
+            <div id="wrapper">
+                <div class="main_contents">
+                    <h2>
+                        <img src="contact/title_contact.png" />
+                    </h2>
+
+                </div>
+
+                <div class="form_contact">
+                    <h2>Đăng ký tư vấn và hỗ trợ</h2>
+                    <h3>Vui lòng điền các thông tin liên hệ, Chúng tôi sẽ liên hệ và giải đáp các thắc mắc của bạn trong thời gian sớm nhất</h3>
+                    <form action=""
+                          method="post"
+                          enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input class="form-control" name="name" type="text" placeholder="Họ và tên" required />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name="phonenumber" type="text" placeholder="Số điện thoại" pattern="[0-9]{10,11}" required />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name="email" type="email" placeholder="Địa chỉ email" required />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Chọn nhu cầu liên hệ" list="loai" required />
+                            <datalist id="loai">
+                                <option>Tư vấn cách chơi</option>
+                                <option>Thông tin dịch vụ</option>
+                                <option>Payment</option>
+                            </datalist>
+
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Nội dung cần liên hệ" cols="50" tabindex="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="form-button" type="submit">Gửi thông tin</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="main_contact">
+                    <h2>
+                        Liên hệ với FATE GRAND ORDER
+                    </h2>
+                    <h3>
+                        Bạn cần hỗ trợ sử dụng hoặc tham gia làm đối tác của FATE GRAND ORDER.
+                    </h3>
+                    <div class="info_contact">
+
+                        <dl>
+                            <dd><h3>TRỤ SỞ CHÍNH</h3></dd>
+                            <dt class="location">
+                                <b>Địa chỉ: </b>45/14/2 Đường số 3, khu phố Ông Nhiêu, phường Long Trường, quận 9, TP Hồ Chí Minh.
+                                <img id="location1" src="contact/click_here.gif" />
+                            </dt>
+                            <dt class="phone">
+                                <b>Tổng đài hỗ trợ: </b>0976453651 - Thứ 2 đến Thứ 6 từ 8h đến 18h; Thứ 7 và Chủ nhật từ 8h00 đến 17h00.
+
+                            </dt>
+                            <dt class="email">
+                                <b>Email: </b>chiemduong.cntt@gmail.com
+                                <a href="mailto:chiemduong.cntt@gmail.com?subject=Feedback&body=Message" target="_blank"><img id="email2" src="contact/click_here.gif" /></a>
+                            </dt>
+                        </dl>
+                        <dl>
+                            <dd><h3>CHI NHÁNH</h3></dd>
+                            <dt class="location">
+                                <b>Địa chỉ: </b>Công viên phần mềm Quang Trung, Toà nhà Innovation lô 24, Quang Trung, Quận 12, TP HCM.
+                                <img id="location2" src="contact/click_here.gif" />
+
+                            </dt>
+                            <dt class="phone">
+                                <b>Tổng đài hỗ trợ: </b>0983973592 - Thứ 2 đến Thứ 6 từ 8h đến 18h; Thứ 7 và Chủ nhật từ 8h00 đến 17h00.
+                            </dt>
+                            <dt class="email">
+                                <b>Email: </b>duongdcps147222fpt.edu.vn
+                                <a href="mailto:duongdcps147222fpt.edu.vn?subject=Feedback&body=Message" target="_blank"><img id="email2" src="contact/click_here.gif" /></a>
+                            </dt>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div class="footer_top">
+                <a class="footer_facebook">
+                    <img src="Images/footer/facebook.png" />
+                </a>
+                <a class="footer_twitter">
+                    <img src="Images/footer/twitter.png" />
+                </a>
+                <a class="footer_youtube">
+                    <img src="Images/footer/youtube.png" />
+                </a>
+                <a class="footer_instagram">
+                    <img src="Images/footer/instagram.png" />
+                </a>
+                <a class="footer_discord">
+                    <img src="Images/footer/discord.png" />
+                </a>
+                <a class="footer_reddit">
+                    <img src="Images/footer/reddit.png" />
+                </a>
+            </div>
+            <div class="footer_main">
+                <div class="footer_main_left">
+                    <div class="footer_logo">
+                        <img src="Images/footer/footer_logo.png" />
+                    </div>
+                    <div class="footer_download">
+                        <a><img src="Images/footer/footer_btn_app.png" /></a>
+                        <a><img src="Images/footer/footer_btn_google.png" /></a>
+                    </div>
+                </div>
+                <div class="footer_main_right">
+                    <div class="footer_readline">
+                        <dl>
+                            <dt>Tựa đề trò chơi:</dt>
+                            <dd>Fate Grand Order</dd>
+                        </dl>
+                        <dl>
+                            <dt>Thể loại:</dt>
+                            <dd>FatePRG</dd>
+                        </dl>
+                        <dl>
+                            <dt>Giá:</dt>
+                            <dd>Miễn phí trên App Store và Google Play</dd>
+                        </dl>
+                        <dl>
+                            <dt>Yêu cầu hệ thống:</dt>
+                            <dd>Hệ điều hành đề xuất: Hệ điều hành tương thích với iOS 10.0 trở lên.</dd>
+                            <dd>Thiết bị được bật: iPhone 5 trở lên, iPad thế hệ thứ 3 trở lên, iPad Mini 2 trở lên, iPod thế hệ thứ 6.</dd>
+                            <dd><br />Điện thoại thông minh hoặc máy tính bảng chạy Android 4.1 trở lên và RAM tối thiểu 2GB. (Không tương thích với CPU Intel.)</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <img id="top" src="Images/footer/btn_pagetop.png" />
+            </div>
+            <div class="footer_bottom">
+                <div>
+                    <a><p>Chính Sách Bảo Mật |</p></a>
+                    <a><p>Điều Khoản Dịch Vụ |</p></a>
+                    <a href="world.html"><p>Giới Thiệu |</p></a>
+                    <a href="contact.html"><p>Liên Hệ</p></a>
+
+                </div>
+                <p>©Design by Nguyễn Mạnh Đức |</p>
+                <p>© TYPE-MOON / FGO PROJECT |</p>
+                <p>© Copyright 2022 Aniplex Inc.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="social">
+        <ul class="social__list">
+            <li class="social__item">
+                <div id="xanh"></div>
+            </li>
+            <li class="social__item">
+                <div id="den"></div>
+            </li>
+            <li class="social__item">
+                <div id="hong"></div>
+            </li>
+        </ul>
+        <button class="social__btn"><img style="width:45px;height:45px" src="Settings-icon.png" /></button>
+    </div>
+</body>
+</html>

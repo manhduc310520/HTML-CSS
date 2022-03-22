@@ -1,0 +1,664 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+    <style>
+        .body {
+            position: relative;
+        }
+
+        .floatContents .wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .floatContents {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            opacity: 0;
+        }
+
+
+            .floatContents .player {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+
+        @media only screen and (min-width: 769px) {
+            .floatContents .player {
+                width: 960px;
+                height: 540px;
+                margin-top: -270px;
+                margin-left: -480px;
+            }
+        }
+
+        @media only screen and (max-width:768px) {
+            .floatContents .player {
+                width: 100%;
+                height: 56.25%;
+                left: 0;
+                top: 22.875%;
+            }
+        }
+
+        .main_contents h2 {
+            background: no-repeat center;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+
+            .main_contents h2:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: url('servant/line.png') repeat-x center;
+                position: absolute;
+                bottom: -1px;
+            }
+
+        .tab_news {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+            .tab_news li {
+                opacity: 0.6;
+                display: inline-block;
+                margin: 5px;
+                width: 115px;
+                padding-left: 20px;
+                line-height: 36px;
+                cursor: pointer;
+            }
+
+            .tab_news a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .tab_news li:hover {
+                opacity: 1;
+            }
+
+            .tab_news .servant {
+                font-size: 14px;
+                border-top: 5px solid rgb(255 255 255 / 0.00);
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                position: relative;
+            }
+
+                .tab_news .servant.lancer {
+                    border-top: 5px solid red;
+                }
+
+                .tab_news .servant.saber:before {
+                    content: url('servant/iconclass/icon-saber.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.archer:before {
+                    content: url('servant/iconclass/icon-archer.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.lancer:before {
+                    content: url('servant/iconclass/icon-lancer.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.rider:before {
+                    content: url('servant/iconclass/icon-rider.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.caster:before {
+                    content: url('servant/iconclass/icon-caster.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.assassin:before {
+                    content: url('servant/iconclass/icon-assassin.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.berserker:before {
+                    content: url('servant/iconclass/icon-berserker.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+                .tab_news .servant.extra:before {
+                    content: url('servant/iconclass/icon-extra.png');
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                }
+
+
+        @media only screen and (min-width: 769px) {
+            .main_contents h2 {
+                background-image: url('servant/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: auto;
+                    height: 80px;
+                }
+
+            .tab_news, .context {
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .saber_1 {
+                height: 800px;
+                position: relative;
+            }
+
+
+                .saber_1 .saber_img {
+                    width: 1160px;
+                    height: 1110px;
+                    position: absolute;
+                    top: -300px;
+                    right: -100px;
+                }
+
+            .saber_2 {
+                height: 800px;
+                position: relative;
+            }
+
+                .saber_2 .saber_img {
+                    width: 1160px;
+                    height: 1110px;
+                    position: absolute;
+                    top: -300px;
+                    right: -100px;
+                }
+
+            .saber_3 {
+                height: 800px;
+                position: relative;
+            }
+
+                .saber_3 .saber_img {
+                    width: 1160px;
+                    height: 1110px;
+                    position: absolute;
+                    top: -300px;
+                    right: -100px;
+                }
+
+            .saber_text div {
+                width: 400px;
+                margin-bottom: 20px;
+            }
+
+            #play {
+                position: absolute;
+                width: 60px;
+                left: calc(50% - 30px);
+                top: calc(50% - 30px);
+                cursor: pointer;
+            }
+
+            .slide_servant {
+                position: relative;
+                z-index: 0;
+            }
+
+                .slide_servant > img {
+                    position: absolute;
+                    top: 80px;
+                }
+
+            .saber_text {
+                font-size: 16px;
+                animation-name: unset;
+                padding: 20px 6%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .main_contents h2 {
+                background-image: url('servant/bg_title.jpg');
+                padding: 55px 0 47px;
+                margin: 0;
+            }
+
+                .main_contents h2 img {
+                    width: 100%;
+                }
+
+            #play {
+                position: absolute;
+                width: 50px;
+                left: calc(50% - 25px);
+                top: calc(50% - 25px);
+                cursor: pointer;
+            }
+
+            .saber_img img {
+                width: 100%;
+            }
+
+            .saber_text {
+                background: url('servant/lancer/bg_lancer.png') no-repeat;
+                font-size: 16px;
+                animation-name: unset;
+                padding: 20px 6%;
+            }
+
+            .slide_servant > img {
+                display: none;
+            }
+        }
+
+        .main_contents {
+            width: 100%;
+        }
+
+            .main_contents ul {
+                padding: 0;
+            }
+
+            .main_contents h2 {
+                margin-bottom: 50px;
+            }
+
+        .context_saber nav {
+            height: 150px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .context_saber ul {
+            list-style: none;
+        }
+
+        .context_saber li {
+            display: inline-block;
+        }
+
+        .context_saber .logo_saber {
+            text-align: center;
+        }
+
+            .context_saber .logo_saber li {
+                margin: 10px;
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+                background-image: url('servant/lancer/frame_thumb.png');
+            }
+
+            .context_saber .logo_saber img {
+                width: 100%;
+                opacity: 0.5;
+                transition: all 0.2s ease;
+            }
+
+                .context_saber .logo_saber img:hover {
+                    -webkit-transform: scale(1.2);
+                    transform: scale(1.2);
+                    border: 1px solid red;
+                }
+
+        .saber_title {
+            margin-left: 6%;
+        }
+
+            .saber_title img {
+                width: 50%;
+            }
+
+        .saber_text {
+            font-size: 16px;
+            padding: 20px 6%;
+        }
+
+            .saber_text img {
+                width: 100%;
+                z-index: 10;
+                position: relative;
+            }
+
+            .saber_text dl {
+                display: table;
+            }
+
+                .saber_text dl dt {
+                    width: 100px;
+                    display: table-cell;
+                }
+
+                .saber_text dl dd {
+                    display: table-cell;
+                }
+    </style>
+    <script>
+        $(function () {
+            $(".saber_1").css({ "display": "block" });
+            $(".saber_2,.saber_3").css({ "display": "none" });
+            $(".saber01 img").css({ "opacity": "1" });
+            $(".saber01").click(function () {
+                $(".saber_1").css({ "display": "block" });
+                $(".saber_2,.saber_3").css({ "display": "none" });
+                $(".saber01 img").css({ "opacity": "1" });
+                $(".saber02 img").css({ "opacity": "0.5" });
+                $(".saber03 img").css({ "opacity": "0.5" });
+
+            });
+            $(".saber02").click(function () {
+                $(".saber_2").css({ "display": "block" });
+                $(".saber_1,.saber_3").css({ "display": "none" });
+                $(".saber02 img").css({ "opacity": "1" });
+                $(".saber01 img").css({ "opacity": "0.5" });
+                $(".saber03 img").css({ "opacity": "0.5" });
+            });
+            $(".saber03").click(function () {
+                $(".saber_3").css({ "display": "block" });
+                $(".saber_1,.saber_2").css({ "display": "none" });
+                $(".saber03 img").css({ "opacity": "1" });
+                $(".saber01 img").css({ "opacity": "0.5" });
+                $(".saber02 img").css({ "opacity": "0.5" });
+            });
+            $(".chara_movie").click(function () {
+                var id = $(this).attr("data-id");
+                var iframe = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + id + '?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>';
+                $("#floatMovie").find(".player").html(iframe);
+                $("#floatMovie").css({ "opacity": "1", "display": "block" });
+
+            })
+            $(".wrap").click(function () {
+                $("#floatMovie").css({ "opacity": "0", "display": "none" });
+                $("#floatMovie").find(".player").empty();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="floatContents" id="floatMovie">
+        <div class="wrap"></div>
+        <div class="player"></div>
+    </div>
+    <div class="container">
+        <header>
+            <nav class="header_nav" id="header_nav">
+                <div class="wrap_nav">
+                    <div class="header_logo">
+                        <h1><a href="index.html"></a></h1>
+                        <div class="nav_menu open"></div>
+                    </div>
+                    <div class="main_menu">
+                        <div class="wraper"></div>
+                        <ul class="global">
+                            <li class="news"><a href="news.html"></a></li>
+                            <li class="world"><a href="world.html"></a></li>
+                            <li class="servant"><a href="servant.html"></a></li>
+                            <li class="howto"><a href="howtoplay.html"></a></li>
+                            <li class="gallery"><a href="gallery.html"></a></li>
+                            <li class="contact"><a href="contact.html"></a></li>
+                            <li class="music"><a href="music.html"></a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/FateGO.USA" target="_blank"></a></li>
+                            <li class="twitter"><a href="https://twitter.com/FateGO_USA" target="_blank"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <article>
+            <div id="wrapper">
+                <div class="main_contents">
+                    <h2>
+                        <img src="servant/title_servant.png" />
+                    </h2>
+                    <nav class="tab_news">
+                        <ul>
+                            <li class="servant saber"><a href="servant.html">SABER</a></li>
+                            <li class="servant archer"><a href="archer.html">ARCHER</a></li>
+                            <li class="servant lancer"><a href="lancer.html">LANCER</a></li>
+                            <li class="servant rider"><a href="rider.html">RIDER</a></li>
+                            <li class="servant caster"><a href="caster.html">CASTER</a></li>
+                            <li class="servant assassin"><a href="assassin.html">ASSASSIN</a></li>
+                            <li class="servant berserker"><a href="berserker.html">BERSERKER</a></li>
+                            <li class="servant extra"><a href="extra.html">EXTRA</a></li>
+
+                        </ul>
+                    </nav>
+                    <div class="context_saber">
+                        <nav>
+                            <ul class="logo_saber">
+                                <li class="saber01">
+                                    <img src="servant/lancer/lancer01.jpg" />
+                                </li>
+                                <li class="saber02">
+                                    <img src="servant/lancer/lancer02.jpg" />
+                                </li>
+                                <li class="saber03">
+                                    <img src="servant/lancer/lancer03.jpg" />
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="slide_servant">
+                            <img src="servant/lancer/bg_lancer.png" />
+                            <div class="saber_1">
+                                <div class="saber_img">
+                                    <img src="servant/lancer/lancer01.png" />
+                                </div>
+                                <div class="saber_title">
+                                    <img src="servant/lancer/lancer01_title.png" />
+                                </div>
+                                <div class="saber_text">
+                                    <dl>
+                                        <dt>CV:</dt>
+                                        <dd>Mamiko Noto</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Illustrator:</dt>
+                                        <dd>Hirokazu Koyama</dd>
+                                    </dl>
+                                    <div>
+                                        A warrior queen from Irish legend and the Ulster Cycle.<br>
+                                        The Queen and Guardian of Dún Scáith, the "Land of Shadows," and a prodigy in the arts of spear and runes.
+                                    </div>
+                                    <div>
+                                        <div style="position:relative;z-index:10">
+                                            <img src="servant/lancer/mv_lancer1.jpg" />
+                                            <img id="play" src="servant/saber/play.png" class="chara_movie" data-id="mHaGGVnWp7s"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="saber_2">
+                                <div class="saber_img">
+                                    <img src="servant/lancer/lancer02.png" />
+                                </div>
+                                <div class="saber_title">
+                                    <img src="servant/lancer/lancer02_title.png" />
+                                </div>
+                                <div class="saber_text">
+                                    <dl>
+                                        <dt>CV:</dt>
+                                        <dd>Rumi Okubo</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Illustrator:</dt>
+                                        <dd>WADARCO</dd>
+                                    </dl>
+                                    <div>
+                                        The model for Carmilla the vampire, countess of blood.<br>
+                                        ...Well, she is, but the version summoned as a Servant is a fourteen-year-old from a time before she committed all those horrifying crimes.
+                                    </div>
+                                    <div>
+                                        <div style="position:relative">
+                                            <img src="servant/lancer/mv_lancer2.jpg" />
+                                            <img id="play" src="servant/saber/play.png" class="chara_movie"  data-id="cuInMXkU1Jo" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="saber_3">
+                                <div class="saber_img">
+                                    <img src="servant/lancer/lancer03.png" />
+                                </div>
+                                <div class="saber_title">
+                                    <img src="servant/lancer/lancer03_title.png" />
+                                </div>
+                                <div class="saber_text">
+                                    <dl>
+                                        <dt>CV:</dt>
+                                        <dd>Nobutoshi Kanna</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Illustrator:</dt>
+                                        <dd>Takashi Takeuchi</dd>
+                                    </dl>
+                                    <div>
+                                        With a dislike of decorations and honor, this spearman prefers to listen to his instincts.<br>
+                                        On a job, he won't hesitate to kill even an ordinary citizen.<br>
+                                        Though he can be merciless, outside of the job he's honorable and takes care of others.
+                                    </div>
+                                    <div>
+                                        <div style="position:relative">
+                                            <img src="servant/lancer/mv_lancer3.jpg" />
+                                            <img id="play" src="servant/saber/play.png" class="chara_movie" data-id="XQ_SxBbI5kY"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div class="footer_top">
+                <a class="footer_facebook">
+                    <img src="Images/footer/facebook.png" />
+                </a>
+                <a class="footer_twitter">
+                    <img src="Images/footer/twitter.png" />
+                </a>
+                <a class="footer_youtube">
+                    <img src="Images/footer/youtube.png" />
+                </a>
+                <a class="footer_instagram">
+                    <img src="Images/footer/instagram.png" />
+                </a>
+                <a class="footer_discord">
+                    <img src="Images/footer/discord.png" />
+                </a>
+                <a class="footer_reddit">
+                    <img src="Images/footer/reddit.png" />
+                </a>
+            </div>
+            <div class="footer_main">
+                <div class="footer_main_left">
+                    <div class="footer_logo">
+                        <img src="Images/footer/footer_logo.png" />
+                    </div>
+                    <div class="footer_download">
+                        <a><img src="Images/footer/footer_btn_app.png" /></a>
+                        <a><img src="Images/footer/footer_btn_google.png" /></a>
+                    </div>
+                </div>
+                <div class="footer_main_right">
+                    <div class="footer_readline">
+                        <dl>
+                            <dt>Tựa đề trò chơi:</dt>
+                            <dd>Fate Grand Order</dd>
+                        </dl>
+                        <dl>
+                            <dt>Thể loại:</dt>
+                            <dd>FatePRG</dd>
+                        </dl>
+                        <dl>
+                            <dt>Giá:</dt>
+                            <dd>Miễn phí trên App Store và Google Play</dd>
+                        </dl>
+                        <dl>
+                            <dt>Yêu cầu hệ thống:</dt>
+                            <dd>Hệ điều hành đề xuất: Hệ điều hành tương thích với iOS 10.0 trở lên.</dd>
+                            <dd>Thiết bị được bật: iPhone 5 trở lên, iPad thế hệ thứ 3 trở lên, iPad Mini 2 trở lên, iPod thế hệ thứ 6.</dd>
+                            <dd><br />Điện thoại thông minh hoặc máy tính bảng chạy Android 4.1 trở lên và RAM tối thiểu 2GB. (Không tương thích với CPU Intel.)</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <img id="top" src="Images/footer/btn_pagetop.png" />
+            </div>
+            <div class="footer_bottom">
+                <div>
+                    <a><p>Chính Sách Bảo Mật |</p></a>
+                    <a><p>Điều Khoản Dịch Vụ |</p></a>
+                    <a href="world.html"><p>Giới Thiệu |</p></a>
+                    <a href="contact.html"><p>Liên Hệ</p></a>
+                </div>
+                <p>©Design by Đỗ Chiếm Dương |</p>
+                <p>© TYPE-MOON / FGO PROJECT |</p>
+                <p>© Copyright 2017 Aniplex Inc.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="social">
+        <ul class="social__list">
+            <li class="social__item">
+                <div id="xanh"></div>
+            </li>
+            <li class="social__item">
+                <div id="den"></div>
+            </li>
+            <li class="social__item">
+                <div id="hong"></div>
+            </li>
+        </ul>
+        <button class="social__btn"><img style="width:45px;height:45px" src="Settings-icon.png" /></button>
+    </div>
+</body>
+</html>

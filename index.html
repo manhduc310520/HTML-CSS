@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet" />
+    <link href="home.css" rel="stylesheet" />
+    <script src="index.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="header_nav" id="header_nav">
+                <div class="wrap_nav">
+                    <div class="header_logo">
+                        <h1><a href="index.html"></a></h1>
+                        <div class="nav_menu open"></div>
+                    </div>
+                    <div class="main_menu">
+                        <div class="wraper"></div>
+                        <ul class="global">
+                            <li class="news"><a href="news.html"></a></li>
+                            <li class="world"><a href="world.html"></a></li>
+                            <li class="servant"><a href="servant.html"></a></li>
+                            <li class="howto"><a href="howtoplay.html"></a></li>
+                            <li class="gallery"><a href="gallery.html"></a></li>
+                            <li class="contact"><a href="contact.html"></a></li>
+                            <li class="music"><a href="music.html"></a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/FateGO.USA" target="_blank"></a></li>
+                            <li class="twitter"><a href="https://twitter.com/FateGO_USA" target="_blank"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <article>
+            <div class="container1">
+                <div class="slide">
+                    <img id="h2" class="images" src="asm/sl2.jpg" />
+                    <img class="logo" src="asm/logo2.png" />
+                    <img class="title" src="asm/catch2.png" />
+                </div>
+                <div class="slide">
+                    <img id="h1" class="images" src="asm/sl1.jpg" />
+                    <img class="logo" src="asm/logo1.png" />
+                    <img class="title" src="asm/catch1.png" />
+                </div>
+                <div class="slide">
+                    <img id="h3" class="images" src="asm/sl3.jpg" />
+                    <img class="logo" src="asm/logo3.png" />
+                    <img class="title" src="asm/catch3.png" />
+                </div>
+                <div class="dota" style="text-align:center">
+                    <div class="dot" onclick="slideshow(0);clearTimeout(action)"></div>
+                    <div class="dot" onclick="slideshow(1);clearTimeout(action)"></div>
+                    <div class="dot" onclick="slideshow(2);clearTimeout(action)"></div>
+                </div>
+
+            </div>
+            <script type="text/javascript">
+                slideshow(index = 0);
+            </script>
+
+            <div class="top_info">
+                <section class="news_wrap">
+                    <h2>
+                        <img id="news" src="Images/news/title_news.png" />
+                    </h2>
+                    <ul>
+                        <li>
+                            <p class="date news">03.22.2021</p>
+                            <p class="title">
+                                <a>[Ongoing] [Event] Tokugawa Restoration Labyrinth, Ooku</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="date event">03.22.2021</p>
+                            <p class="title">
+                                <a>[Ongoing] [Summon] Tokugawa Restoration Labyrinth, Ooku Pickup Summon</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="date update">03.22.2021</p>
+                            <p class="title">
+                                <a>[Update - New Info] [Chaldea PR] Chaldea Broadcasting Station U.S. Branch Vol. 11!</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="date mente">03.16.2021</p>
+                            <p class="title">
+                                <a>[Important] Application Version Update (03-16 01:00 PDT)</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                    <p class="btn_more">
+                        <a href="news.html">
+                            <img src="Images/news/btn_more.png" />
+                        </a>
+                    </p>
+                </section>
+                <section class="tiwtter_wrap">
+                    <h2>
+                        <img id="twitter" src="Images/news/title_twitter.png" />
+                    </h2>
+                    <div class="widjet">
+                        <a class="twitter-timeline" data-height="312" href="https://twitter.com/FateGO_USA" data-chrome="noheader nofooter transparent noscrollbar">Tweets by FateGO_USA</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                    </div>
+                    <p class="btn_more">
+                        <a href="https://twitter.com/FateGO_USA" target="_blank">
+                            <img src="Images/news/btn_twitter.png" />
+                        </a>
+                    </p>
+                </section>
+            </div>
+
+            <div class="character">
+                <p class="lead">
+                    <img src="Images/servant/title_servant.png"/>
+                </p>
+
+                <div class="clearfix chara_wrap">
+                    <ul class="" style="padding-left:0px">
+                        <li class="saber">
+                            <a href="servant.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="saber" src="Images/servant/class_saber_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_saber_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+
+                            
+                        </li>
+                        <li class="archer">
+                            <a href="archer.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="archer" src="Images/servant/class_archer_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_archer_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="lancer">
+                            <a href="lancer.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="lancer" src="Images/servant/class_lancer_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_lancer_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="rider">
+                            <a href="rider.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="rider" src="Images/servant/class_rider_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_rider_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="caster">
+                            <a href="caster.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="caster" src="Images/servant/class_caster_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_caster_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="assassin">
+                            
+                            <a href="assassin.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="assassin" src="Images/servant/class_assassin_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img">></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_assassin_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="berserker">
+                           
+                            <a href="berserker.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="berserker" src="Images/servant/class_berserker_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_berserker_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="extra">
+                           
+                            <a href="extra.html">
+                                <div class="off">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img id="extra" src="Images/servant/class_extra_off.png" />
+                                    </p>
+                                </div>
+                                <div class="on">
+                                    <p class="img"></p>
+                                    <p class="cl">
+                                        <img src="Images/servant/class_extra_on.png" />
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="staff">
+                <img id="staff1" src="Images/staff/title_staff.png" />
+                <img id="staff2" src="Images/staff/txt_staff.png" />
+            </div>
+        </article>
+        <footer>
+            <div class="footer_top">
+                <a class="footer_facebook">
+                    <img src="Images/footer/facebook.png" />
+                </a>
+                <a class="footer_twitter">
+                    <img src="Images/footer/twitter.png" />
+                </a>
+                <a class="footer_youtube">
+                    <img src="Images/footer/youtube.png" />
+                </a>
+                <a class="footer_instagram">
+                    <img src="Images/footer/instagram.png" />
+                </a>
+                <a class="footer_discord">
+                    <img src="Images/footer/discord.png" />
+                </a>
+                <a class="footer_reddit">
+                    <img src="Images/footer/reddit.png" />
+                </a>
+            </div>
+            <div class="footer_main">
+                <div class="footer_main_left">
+                    <div class="footer_logo">
+                        <img src="Images/footer/footer_logo.png" />
+                    </div>
+                    <div class="footer_download">
+                        <a><img src="Images/footer/footer_btn_app.png" /></a>
+                        <a><img src="Images/footer/footer_btn_google.png" /></a>
+                    </div>
+                </div>
+                <div class="footer_main_right">
+                    <div class="footer_readline">
+                        <dl>
+                            <dt>Tựa đề trò chơi:</dt>
+                            <dd>Fate Grand Order</dd>
+                        </dl>
+                        <dl>
+                            <dt>Thể loại:</dt>
+                            <dd>FatePRG</dd>
+                        </dl>
+                        <dl>
+                            <dt>Giá:</dt>
+                            <dd>Miễn phí trên App Store và Google Play</dd>
+                        </dl>
+                        <dl>
+                            <dt>Yêu cầu hệ thống:</dt>
+                            <dd>Hệ điều hành đề xuất: Hệ điều hành tương thích với iOS 10.0 trở lên.</dd>
+                            <dd>Thiết bị được bật: iPhone 5 trở lên, iPad thế hệ thứ 3 trở lên, iPad Mini 2 trở lên, iPod thế hệ thứ 6.</dd>
+                            <dd><br />Điện thoại thông minh hoặc máy tính bảng chạy Android 4.1 trở lên và RAM tối thiểu 2GB. (Không tương thích với CPU Intel.)</dd>
+
+                        </dl>
+                    </div>
+                </div>
+                <img id="top" src="Images/footer/btn_pagetop.png" />
+            </div>
+            <div class="footer_bottom">
+                <div>
+                    <a><p>Chính Sách Bảo Mật |</p></a>
+                    <a><p>Điều Khoản Dịch Vụ |</p></a>
+                    <a href="world.html"><p>Giới Thiệu |</p></a>
+                    <a href="contact.html"><p>Liên Hệ</p></a>
+
+                </div>
+                <p>©Design by Nguyễn Mạnh Đức |</p>
+                <p>© TYPE-MOON / FGO PROJECT |</p>
+                <p>© Copyright 2022 Aniplex Inc.</p>
+            </div>
+        </footer>
+    </div>
+    <div class="main_area">
+        <div class="over_info">
+            <div class="app">
+                <div class="app_wrap">
+                    <div class="btn_event">
+                        <p class="icon">
+                            <img src="icon_game.png" />
+                        </p>
+                        <p class="bnr_event">
+                            <a href="" >
+                                <img src="event.png" />
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="btn_dl">
+                        <p class="ios">
+                            <a href="https://apps.apple.com/app/id1183802626" target="_blank">
+                                <img src="btn_app.png" />
+                            </a>
+                        </p>
+                        <p class="android">
+                            <a href="https://play.google.com/store/apps/details?id=com.aniplex.fategrandorder.en" target="_blank">
+                                <img src="btn_google.png" />
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="social">
+        <ul class="social__list">
+            <li class="social__item">
+                <div id="xanh"></div>
+            </li>
+            <li class="social__item">
+                <div id="den"></div>
+            </li>
+            <li class="social__item">
+                <div id="hong"></div>
+            </li>
+        </ul> 
+        <button class="social__btn"><img style="width:45px;height:45px" src="Settings-icon.png" /></button>
+    </div>
+</body>
+</html>

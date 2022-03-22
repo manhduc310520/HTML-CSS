@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            padding: 0;
+        }
+        div{
+            position:absolute;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+            var myCanvas = $("#myCanvas")[0];
+            var context = myCanvas.getContext("2d");
+            var width = $("#myCanvas").width();
+            var height = $("#myCanvas").height();
+
+            context.fillStyle = "#c0f0aa";
+            context.fillRect(0, 0, width, height);
+            context.strokeStyle = "0000ff";
+            context.strokeRect(0, 0, width, height);
+
+            var widthUnit = 15;
+            var huongDi;
+            var food;
+            var score;
+            var ran;
+
+            var game_loop = null;
+            
+            createSnake();
+
+            function start() {        
+                huongDi = "right";
+                createFood();
+                score = 0;
+                paintSnake();
+                game_loop = setInterval(paintSnake, 100);
+            }
+            $("#btnStart").click(function () {
+                $("#btnStart").css("display", "none");
+                start();
+    
+            });
+
+            function createSnake() {
+                var snakeSize = 4;
+                ran = [];
+                for (var m = 0; m < snakeSize - 1; m++) {
+                    ran.push({ x: -1, y: 20 });
+                }
+            }
+
+            function createFood() {
+                food = {
+                    x: Math.round(Math.random() * (width - widthUnit) / widthUnit),
+                    y: Math.round(Math.random() * (height - widthUnit) / widthUnit),
+                };
+            }
+     
+            function paintSnake() {
+                context.fillStyle = "#c0f0aa";
+                context.fillRect(0, 0, width, height);
+                context.strokeStyle = "0000ff";
+                context.strokeRect(0, 0, width, height);
+                var headX = ran[0].x;
+                var headY = ran[0].y;
+                
+
+                if (huongDi == "right") headX++;
+                else if (huongDi == "left") headX--;
+                else if (huongDi == "down") headY++;
+                else if (huongDi == "up") headY--;
+
+
+                if (headX <= -1 || headY <= -1 || checkCollision(headX, headY, ran) || headX >= width / widthUnit || headY >= height / widthUnit) {
+                    alert("Thua rồi\nScore: " + score);
+                    $("#btnStart").css("display", "block");
+                    clearInterval(game_loop);
+                    createSnake();
+                    checkCollision(headX, headY, ran) = false;
+                }
+                if (headX == food.x && headY == food.y) {
+                    var snake_tail = { x: headX, y: headY };
+                    score++;
+                    createFood();
+                }
+                else {
+                    var snake_tail = ran.pop();
+                    snake_tail.x = headX; snake_tail.y = headY;
+                }
+
+                ran.unshift(snake_tail);
+
+                for (var i = 0; i < ran.length; i++) {
+                    var k = ran[i];
+
+                    paintCell(k.x, k.y);
+                }
+
+
+                paintCell(food.x, food.y);
+
+                var score_text = "Score: " + score;
+                context.fillText(score_text, width - 50, 20);
+            }
+
+            function paintCell(x, y) {
+                context.fillStyle = "orange";
+                context.fillRect(x * widthUnit, y * widthUnit, widthUnit, widthUnit);
+                context.strokeStyle = "red";
+                context.strokeRect(x * widthUnit, y * widthUnit, widthUnit, widthUnit);
+            }
+
+            function checkCollision(x, y, array) {
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].x == x && array[i].y == y) {
+                        return true;
+                        break;
+                    }
+                }
+                return false;
+            }
+
+            $(document).keydown(function (e) {
+                var keyInput = e.which;
+                if (keyInput == "40" && huongDi != "up") huongDi = "down";
+                else if (keyInput == "39" && huongDi != "left") huongDi = "right";
+                else if (keyInput == "38" && huongDi != "down") huongDi = "up";
+                else if (keyInput == "37" && huongDi != "right") huongDi = "left";
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <canvas id="myCanvas" width="600" height="600" />
+    </div>
+    <div>
+        <button id="btnStart" name="button" type="button">Bắt đầu</button>
+    </div>
+
+</body>
+</html>
